@@ -1,0 +1,65 @@
+author:
+  name: Pushkar Upadhyay
+  email: thepushkar24@gmail.com
+  github: https://github.com/Pushkarup
+  Linkedin: https://www.linkedin.com/in/pushkar-upadhyay-24p/
+
+payload_description: XSS WAF Bypass using location concatenation
+
+
+payload: "><BODy onbeforescriptexecute="x1='cookie';c=')';b='a';location='jav'+b+'script:con'+'fir\u006d('+'document'+'.'+x1+c">
+
+
+  - description: "Payload Description"
+    content: |
+      The payload you provided is an example of an XSS (Cross-Site Scripting) attack.
+      It attempts to bypass a WAF (Web Application Firewall) by using concatenation in the `location` attribute.
+
+  - description: "Payload Explanation"
+    content: |
+      The payload starts with a quote `">` to close any open HTML attribute and the opening tag. 
+      Then, it sets the `onbeforescriptexecute` event to trigger the following JavaScript code.
+      
+      The JavaScript code starts by defining variables `x1`, `c`, and `b`. `x1` is set to `'cookie'`, `c` is set to `')'`, and `b` is set to `'a'`. 
+      These variables are used to construct the payload.
+      
+      The payload then sets the `location` to a concatenated string. 
+      It uses `'jav' + b + 'script:con' + 'fir\u006d(' + 'document' + '.' + x1 + c'`. 
+      This concatenation builds a JavaScript code that executes the `confirm` function with the `document.cookie` as an argument.
+
+  - description: "How the Payload Works"
+    content: |
+      By setting the `location` attribute to a JavaScript code, the payload attempts to execute the code when the `onbeforescriptexecute` event is triggered. 
+      In this case, it executes the `confirm` function with the `document.cookie` as an argument.
+      
+      The payload uses concatenation to evade the WAF's detection. 
+      By splitting the payload into multiple strings and then concatenating them, it can bypass certain security filters that may be looking for specific keywords or patterns.
+
+  - description: "Security Implications"
+    content: |
+      If successful, the payload can execute arbitrary JavaScript code on the victim's browser. 
+      In this case, it attempts to retrieve the user's cookies using the `document.cookie` property and displays it in a confirmation dialog.
+      
+      This type of XSS attack can lead to various security risks, including session hijacking, data theft, and unauthorized actions on behalf of the user.
+
+  - description: "Note"
+    content: |
+      It is important to note that using this payload or any other hacking techniques without proper authorization is illegal and unethical. 
+      This documentation is provided for educational purposes only.
+
+additional_details:
+  - description: "Payload Variations"
+    content: |
+      This payload can be modified and customized based on the target application's context and the specific WAF rules in place. 
+      By experimenting with different concatenation techniques, encoding methods, and payload structures, it may be possible to bypass different types of WAF protections.
+
+  - description: "Countermeasures"
+    content: |
+      To protect against XSS attacks like this, it is important to implement proper input validation and output encoding. 
+      Additionally, utilizing a robust WAF that is regularly updated with the latest security rules can help detect and prevent such attacks.
+
+  - description: "Legal and Ethical Considerations"
+    content: |
+      It is essential to use hacking techniques responsibly and ethically. 
+      Unauthorized penetration testing or exploiting vulnerabilities without proper authorization is illegal and can have severe consequences. 
+      Always ensure that you have the necessary permissions and legal consent before performing any security testing or demonstrating vulnerabilities.
